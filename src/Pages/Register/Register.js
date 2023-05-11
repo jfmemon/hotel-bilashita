@@ -21,7 +21,7 @@ const Register = () => {
 
     return (
         <div>
-            <h3>This is register.</h3>
+            <h3 align="center">This is register.</h3>
             <Form onSubmit={handleRegistration} className='w-25 border p-5 mx-auto'>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label htmlFor='name'>Name</Form.Label>

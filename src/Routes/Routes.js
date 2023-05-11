@@ -1,3 +1,5 @@
+import RoomPackage from "../Pages/RoomPackage/RoomPackage";
+import PrivateRoute from "./PrivateRoute";
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../Layout/Main");
 const { default: Home } = require("../Pages/Home/Home");
@@ -20,6 +22,17 @@ export const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/packages/:id',
+                loader: async({params}) => {
+                    return fetch(`http://localhost:5000/packages/${params.id}`)
+                },
+                element: <PrivateRoute><RoomPackage></RoomPackage></PrivateRoute>
+            },
+            {
+                path:'/signOut',
+                element:<Home></Home>
             }
         ]
     }
